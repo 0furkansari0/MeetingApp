@@ -5,7 +5,8 @@
 
 <h1 class="h4 text-center">Toplantı Katılım Formu</h1>
 
-<form method="post" action="">
+<form method="post" action="/meeting/apply" novalidate>
+    <div asp-validation-summary="All"></div>
     <div class="mb-3">
         <label asp-for="Name" class="from-label">Ad Soyad</label>
         <Input asp-for="Name"  class="form-control"></Input>
@@ -21,6 +22,7 @@
     <div class="mb-3">
         <label asp-for="WillAttend" class="from-label">Katılım Durumu</label>
         <select asp-for="WillAttend" class="form-select">
+            <option value="">Seçiniz</option>
             <option value="true">Evet, Katılıyorum.</option>
             <option value="false">Hayır, Katılmıyorum.</option>
         </select>

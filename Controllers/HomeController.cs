@@ -19,14 +19,16 @@ namespace MettingApp.Controllers
 
             //ViewData
             ViewData["Selamlama"] = saat > 12 ? "İyi Günler" : "Günaydın";
-            ViewData["UserName"] = "Furkan";
+            //ViewData["UserName"] = "Furkan";
             //cshmtl: @ViewData["Selamlama"], @ViewData["UserName"]
+
+            var userCount = Repository.Users.Where(t=>t.WillAttend == true).Count();
 
             var meetingInfo = new MeetingInfo(){
                 Id = 1,
                 Location = "Istanbul, ABC Merkezi",
                 Date = new DateTime(2024, 01, 20, 20, 00, 00),
-                NumberOfPeople = 100
+                NumberOfPeople = userCount
             };
 
             return View(meetingInfo);
